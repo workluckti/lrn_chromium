@@ -8,9 +8,9 @@ src
     ├──browser
     |   ├──resources  
     |   |   | #1 Creating the WebUI page
-    |   |   ├──hellow_world.html
-    |   |   ├──hellow_world.css
-    |   |   └──hellow_world.js #8+ Adding a callback handler #10+ Passing arguments to the WebUI
+    |   |   ├──hello_world.html
+    |   |   ├──hello_world.css
+    |   |   └──hello_world.js #8+ Adding a callback handler #10+ Passing arguments to the WebUI
     |   └──browser_resources.grd #2+ Adding the resources to Chrome
     |   ├──ui
     |   |   ├──webui 
@@ -37,6 +37,7 @@ WebUI resources are located in the resources folder, src/chrome/browser/resource
 
 `src/chrome/browser/resources/hello_world.html`:
 ```html
+<!-- ERROR: Error version from official website. -->
 <!DOCTYPE HTML>
 <html i18n-values="dir:textdirection">
 <head>
@@ -53,6 +54,29 @@ WebUI resources are located in the resources folder, src/chrome/browser/resource
   <h1 i18n-content="helloWorldTitle"></h1>
   <p id="welcome-message"></p>
  <script src="chrome://resources/js/i18n_template.js"></script>
+</body>
+</html>
+```
+The original code in official document will case following error becasue of the `i18n_template.js`：
+![bug-i18n](images/../../images/bug-i18n.jpg)
+
+Remove the code about **i18n** can solve it, as following code:
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>helloWorldTitle</title>
+  <link rel="stylesheet" href="hello_world.css">
+  <script src="chrome://resources/js/cr.js"></script>
+  <script src="chrome://resources/js/load_time_data.js"></script>
+  <script src="chrome://resources/js/util.js"></script>
+  <script src="strings.js"></script>
+  <script src="hello_world.js"></script>
+</head>
+<body>
+  <h1>helloWorldTitle</h1>
+  <p id="welcome-message"></p>
 </body>
 </html>
 ```
@@ -101,13 +125,18 @@ Resources files are added to Chrome using the `src/chrome/browser/browser_resour
 
 URL constants are stored in the files `src/chrome/common/webui_url_constants.*`. This is where you will add the URL or URL's which will be directed to your new resources.
 
+> PS: Change `url_constant` (*official doc*) to `webui_url_constant`
+> - `url_constant` : define the url of google website, such as "https://support.google.com/..."
+> - `webui_url_constant` : define the webui url, such as "chrome://..."
+
+
 `src/chrome/common/webui_url_constants.h`:
 ```c
 + extern const char kChromeUIHelloWorldURL[];
 ...
 + extern const char kChromeUIHelloWorldHost[];
 
-src/chrome/common/webui_url_constants.cc:
+`src/chrome/common/webui_url_constants.cc`:
 + const char kChromeUIHelloWorldURL[] = "chrome://hello-world/";
 ...
 + const char kChromeUIHelloWorldHost[] = "hello-world";
@@ -174,7 +203,8 @@ HelloWorldUI::HelloWorldUI(content::WebUI* web_ui)
 
   // As a demonstration of passing a variable for JS to use we pass in the name "Bob".
   html_source->AddString("userName", "Bob");
-  html_source->SetJsonPath("strings.js");
+  // html_source->SetJsonPath("strings.js"); // ERROR: No function, change to `UseStringsJs()`
+  html_source->UseStringsJs();
 
   // Add required resources.
   html_source->AddResourcePath("hello_world.css", IDR_HELLO_WORLD_CSS);
@@ -199,6 +229,9 @@ sources = [
 ...
 +   "webui/hello_world_ui.cc",
 +   "webui/hello_world_ui.h",
+...
+]
+...
 ```
 
 ## 7. Adding your WebUI request handler to the Chrome WebUI factory
@@ -220,55 +253,88 @@ You're done! Assuming no errors (because everyone gets their code perfect the fi
 ## 8. Adding a callback handler
 You probably want your new WebUI page to be able to do something or get information from the C++ world. For this, we use message callback handlers. Let's say that we don't trust the Javascript engine to be able to add two integers together (since we know that it uses floating point values internally). We could add a callback handler to perform integer arithmetic for us.
 
-`src/chrome/browser/ui/webui/hello_world_ui.h`:
+`src/chrome/browser/ui/webui/hello_world_handler.h`:
 ```c++
-// #include "chrome/browser/ui/webui/chrome_web_ui.h" // ERROR: the file can't find
-+
-+ namespace base {
-+   class ListValue;
-+ }  // namespace base
+#ifndef CHROME_BROWSER_UI_WEBUI_HELLO_WORLD_HANDLER_H_
+#define CHROME_BROWSER_UI_WEBUI_HELLO_WORLD_HANDLER_H_
+
+#include "base/macros.h"
+#include "base/values.h"
+#include "content/public/browser/web_ui_message_handler.h"
 
 // The WebUI for chrome://hello-world
-...
-    // Set up the chrome://hello-world source.
-    ChromeWebUIDataSource* html_source =
-        new ChromeWebUIDataSource(chrome::kChromeUIHelloWorldHost);
-+
-+   // Register callback handler.
-+   RegisterMessageCallback("addNumbers",
-+       base::Bind(&HelloWorldUI::AddNumbers,
-+                  base::Unretained(this)));
+class HelloWorldHandler : public content::WebUIMessageHandler {
+ public:
+  HelloWorldHandler();
+  ~HelloWorldHandler() override;
 
-    // Localized strings.
-...
-    virtual ~HelloWorldUI();
-+
-+  private:
-+   // Add two numbers together using integer arithmetic.
-+   void AddNumbers(const base::ListValue* args);
+  // WebUIMessageHandler implementation.
+  void RegisterMessages() override;
 
-    DISALLOW_COPY_AND_ASSIGN(HelloWorldUI);
-  };
+ private: 
+  // Add two numbers together using integer arithmetic.
+  void AddNumbers(const base::ListValue* args);
 
+  DISALLOW_COPY_AND_ASSIGN(HelloWorldHandler);
+};
+
+#endif  // CHROME_BROWSER_UI_WEBUI_HELLO_WORLD_HANDLER_H_
+```
+`src/chrome/browser/ui/webui/hello_world_handler.cc`:
+```C++
+#include "chrome/browser/ui/webui/hello_world_handler.h"
+
+#include "base/bind.h"
+
+HelloWorldHandler::HelloWorldHandler() {
+}
+
+HelloWorldHandler::~HelloWorldHandler() {
+}
+
+// WebUIMessageHandler implementation.
+void HelloWorldHandler::RegisterMessages() {
+  web_ui()->RegisterMessageCallback("hello_world.addNumbers",
+      base::BindRepeating(&HelloWorldHandler::AddNumbers,
+                          base::Unretained(this)));
+}
+// Add two numbers together using integer arithmetic.
+void HelloWorldHandler::AddNumbers(const base::ListValue* args) {
+  AllowJavascript();
+  int term1, term2;
+  if (!args->GetInteger(0, &term1) || !args->GetInteger(1, &term2))
+    return;
+  base::Value result(term1 + term2);
+  CallJavascriptFunction("hello_world.addResult", result);
+}
 ```
 
 `src/chrome/browser/ui/webui/hello_world_ui.cc`:
 ```C++
-  #include "chrome/browser/ui/webui/hello_world_ui.h"
-+
-+ #include "base/values.h"
-  #include "chrome/browser/profiles/profile.h"
+#include "chrome/browser/ui/webui/hello_world_ui.h"
++ #include "chrome/browser/ui/webui/hello_world_handler.h"
 ...
-  HelloWorldUI::~HelloWorldUI() {
-  }
-+
-+ void HelloWorldUI::AddNumbers(const base::ListValue* args) {
-+   int term1, term2;
-+   if (!args->GetInteger(0, &term1) || !args->GetInteger(1, &term2))
-+     return;
-+   base::FundamentalValue result(term1 + term2);
-+   CallJavascriptFunction("hello_world.addResult", result);
-+ }
++  // set up message handler
++ web_ui->AddMessageHandler(std::make_unique<HelloWorldHandler>());
+  // Set up the chrome://hello-world source.
+  content::WebUIDataSource* html_source =
+      content::WebUIDataSource::Create(chrome::kChromeUIHelloWorldHost);
+...
+}
+...
+
+```
+Adding new sources to Chrome: `src/chrome/browser/ui/BUILD.gn`:
+```c
+sources = [
+...
+    "webui/hello_world_ui.cc",
+    "webui/hello_world_ui.h",
++   "webui/hello_world_handler.cc",
++   "webui/hello_world_handler.h",
+...
+]
+...
 ```
 
 `src/chrome/browser/resources/hello_world.js`:

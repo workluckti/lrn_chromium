@@ -1,4 +1,5 @@
 #include "chrome/browser/ui/webui/hello_world_ui.h"
+#include "chrome/browser/ui/webui/hello_world_handler.h"
 
 #include "chrome/browser/profiles/profile.h"
 #include "chrome/common/url_constants.h"
@@ -8,6 +9,8 @@
 
 HelloWorldUI::HelloWorldUI(content::WebUI* web_ui)
     : content::WebUIController(web_ui) {
+  // set up message handler
+  web_ui->AddMessageHandler(std::make_unique<HelloWorldHandler>());
   // Set up the chrome://hello-world source.
   content::WebUIDataSource* html_source =
       content::WebUIDataSource::Create(chrome::kChromeUIHelloWorldHost);
@@ -18,7 +21,8 @@ HelloWorldUI::HelloWorldUI(content::WebUI* web_ui)
 
   // As a demonstration of passing a variable for JS to use we pass in the name "Bob".
   html_source->AddString("userName", "Bob");
-  html_source->SetJsonPath("strings.js");
+  // html_source->SetJsonPath("strings.js"); // ERROR: No function, change to `UseStringsJs()`
+  html_source->UseStringsJs();
 
   // Add required resources.
   html_source->AddResourcePath("hello_world.css", IDR_HELLO_WORLD_CSS);
