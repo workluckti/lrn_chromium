@@ -9,6 +9,21 @@ version:0.1
     - [同步更改](#同步更改)
     - [进行更改](#进行更改)
     - [重做提交](#重做提交)
+    - [暂存未提交内容进行远端拉取](#暂存未提交内容进行远端拉取)
+    - [术语表](#术语表)
+  - [分支模型规范](#分支模型规范)
+    - [主分支](#主分支)
+    - [辅助分支](#辅助分支)
+      - [feature 分支](#feature-分支)
+      - [Release 分支](#release-分支)
+      - [Hotfix 分支](#hotfix-分支)
+  - [commit message 格式规范](#commit-message-格式规范)
+    - [type(必须)](#type必须)
+    - [scope(可选)](#scope可选)
+    - [subject(必须)](#subject必须)
+    - [例子](#例子)
+  - [版本命名规则](#版本命名规则)
+    - [重做提交](#重做提交)
     - [术语表](#术语表)
   - [分支模型规范](#分支模型规范)
     - [主分支](#主分支)
@@ -24,7 +39,7 @@ version:0.1
 > 详细的git使用教程参看 [ git 官网](https://git-scm.com/doc).
 
 ### 配置工具
-对本地仓库的本地用户信息进行配置
+对本地仓库的本地用户信息进行配置:
 ```
 $ git config user.name "[name]"
 ```
@@ -33,6 +48,10 @@ $ git config user.name "[name]"
 $ git config user.email "[email address]"
 ```
 对你的commit操作设置关联的邮箱地址, 没有邮箱地址则设为"用户名@stl", 如上: xmwang@stl
+```
+git config --global core.longpaths true
+```
+开启全局的长文件名支持（解决报错：error: unable to create file xxx: Filename too long）。
 
 > 全局启用有帮助的彩色命令行输出:
 > ```
@@ -133,7 +152,28 @@ $ git reset --hard [commit]
 ```
 放弃所有历史，改回指定提交。
 
->小心！更改历史可能带来不良后果。如果你需要更改 GitHub（远端）已有的提交，请谨慎操作。如果你需要帮助，可访问 github.community 或联系支持(support)。
+>小心！更改历史可能带来不良后果。如果你需要更改 Gitlab（远端）已有的提交，请谨慎操作。所以在不确定的情况请采用下面方式进行提交的撤销。
+
+回退提交为新的提交
+```
+$ git revert [commit]
+```
+>该命令不会删除已有的提交，只是撤销已有提交的修改生成新的提交，可以进行安全的提交撤销工作，建议尽量使用此方式。
+
+### 暂存未提交内容进行远端拉取
+暂存当前未提交内容
+```
+$ git stash
+```
+拉取远端内容
+```
+$ git pull
+```
+恢复暂存的未提交内容
+```
+$ git stash pop
+```
+> 最后一步可能会有冲突，需要手动判断
 
 ### 术语表
 - git: 一个开源的分布式版本控制系统
@@ -150,14 +190,14 @@ HEAD: 代表你当前的工作目录。使用git checkout 可移动 HEAD 指针�
 > 本分支模型主要参考了[ Vincent Driessen 博文 ](https://nvie.com/posts/a-successful-git-branching-model/).
 
 
-![分支模型](image/git-model@2x.png)
+![分支模型](images/git-model@2x.png)
 
 ### 主分支
 中心仓库保有两条拥有永久生命周期的主分支:
 - master
 - develop
 
-![主分支](image/main-branches@2x.png)
+![主分支](images/main-branches@2x.png)
 
 两条主分支并行存在于整个项目周期, 
 - master 分支反映了项目产品稳定版本的变化状态. 
@@ -170,7 +210,7 @@ HEAD: 代表你当前的工作目录。使用git checkout 可移动 HEAD 指针�
 - 完成开发后必须合并回 develop 分支. 
 - 分支命名除了 master, develop, release-*, 或 hotfix-* 以外都是可以的, 尽量采用与所开发功能对应的英文单词, 尽量不用缩写.
 
-![功能分支](image/feature-branches@2x.png)
+![功能分支](images/feature-branches@2x.png)
 
 从 develop 分支创建功能分支:
 ```
@@ -190,7 +230,7 @@ Deleted branch myfeature (was 05e9557).
 $ git push origin develop
 ```
 > PS: 功能分支内的历史一般不合并到develop分支中, 所以基本都要带上 `--no-ff` flag 来省去, 具体功能见下图.<br>
-![no-ff-merge](image/merge-without-ff@2x.png)
+![no-ff-merge](images/merge-without-ff@2x.png)
 
 #### Release 分支
 
@@ -198,7 +238,7 @@ $ git push origin develop
 - 合并回 develop 和 master 分支. 
 - 分支命名采用 release-*, * 为对应的 release 编码, 也就是内部版本号.
 
-![release 分支](image/release-branches@2x.jpg)
+![release 分支](images/release-branches@2x.jpg)
 
 从 develop 分支创建 release 分支:
 ```
@@ -245,7 +285,7 @@ hotfix 分支用于修复上线产品比较严重的bug.
 - 合并回 develop 和 master 分支. 
 - 分支命名采用 hotfix-*, * 为对应的内部版本号.
 
-![hotfix 分支](image/hotfix-branches@2x.png)
+![hotfix 分支](images/hotfix-branches@2x.png)
 
 从 master 分支创建 hotfix 分支:
 ```
@@ -289,17 +329,55 @@ Merge made by recursive.
 $ git branch -d hotfix-1.2.1
 Deleted branch hotfix-1.2.1 (was abbe5d6).
 ```
+## commit message 格式规范
+```sh
+<type>(<scope>): <subject>
+```
+### type(必须)
+用于说明git commit的类别，只允许使用下面的标识。
+- feat：新功能（feature）。
+- fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG。
+  - fix：产生diff并自动修复此问题。适合于一次提交直接修复问题
+  - to：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix
+- docs：文档（documentation）。
+- style：格式（不影响代码运行的变动）。
+- refactor：重构（即不是新增功能，也不是修改bug的代码变动）。
+- perf：优化相关，比如提升性能、体验。
+- test：增加测试。
+- chore：构建过程或辅助工具的变动。
+- revert：回滚到上一个版本。
+- merge：代码合并。
+- sync：同步主线或分支的Bug。
+
+### scope(可选)
+scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。
+
+例如在Angular，可以是location，browser，compile，compile，rootScope， ngHref，ngClick，ngView等。如果你的修改影响了不止一个scope，你可以使用*代替。
+
+### subject(必须)
+subject是commit目的的简短描述
+- 不超过50个字符。
+- 建议使用中文（感觉中国人用中文描述问题能更清楚一些）。
+- 结尾不加句号或其他标点符号。
+
+### 例子
+根据以上规范git commit message将是如下的格式：
+- fix(DAO):用户查询缺少username属性 
+- feat(Controller):用户查询接口开发
 
 ## 版本命名规则
 版本号规则由三部分组成：
 - 第一部分为主版本号
 - 第二部分为子版本号
 - 第三部分为阶段版本号
+- 第四部分为小阶段版本号
 
 主版本号： 当功能模块有较大的变动，比如增加多个模块或者整体架构发生变化。此版本号由项目决定是否修改。
 
 子版本号： 当功能有一定的增加或变化，比如增加了多个需求。此版本号由项目决定是否修改。
 
-阶段版本号： 一般是 Bug 修复或是一些小的变动，要经常发布修订版，时间间隔不限，修复一个严重的bug即可发布一个修订版。此版本号由项目经理决定是否修改。
+阶段版本号： 较大的整体优化和提高，相当一些系列小阶段的整合
 
-完全的版本号定义：<主版本号>.<子版本号>.<阶段版本号>，如 1.0.0
+小阶段版本号：一般是 Bug 修复或是一些小的变动，要经常发布修订版，时间间隔不限，修复一个严重的bug即可发布一个修订版。此版本号由项目经理决定是否修改。
+
+完全的版本号定义：<主版本号>.<子版本号>.<阶段版本号>.<小阶段版本号>，如 1.0.0.0
