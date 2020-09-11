@@ -45,7 +45,7 @@ which is easy to derive from and has easy-to-use functionality in
 Let's combine `WebContentsObserver` and `WebContentsUserData` together, to log
 whenever the title of a tab changes.
 
-```
+```C++
 class TitleLoggerTabHelper
     : public content::WebContentsObserver,
       public content::WebContentsUserData<TitleLoggerTabHelper> {
