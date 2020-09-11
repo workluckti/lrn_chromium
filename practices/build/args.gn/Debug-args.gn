@@ -1,0 +1,11 @@
+# Set build arguments here. See `gn buildargs`.
+is_debug = true
+is_component_build = true
+is_official_build = false
+target_cpu = "x64"
+enable_nacl = false
+blink_symbol_level = 0
+ffmpeg_branding = "Chrome"
+enable_iterator_debugging = false
+proprietary_codecs = true
+use_jumbo_build = true
