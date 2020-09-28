@@ -1,0 +1,1 @@
+logo:`src\chrome\app\theme\chromium\`

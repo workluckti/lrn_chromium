@@ -1,0 +1,379 @@
+{
+    "account_id_migration_state": 2,
+    "account_tracker_service_last_update": "13241497262444659",
+    "autocomplete": {
+        "retention_policy_last_version": 78
+    },
+    "autofill": {
+        "japan_city_field_migrated_to_street_address": true,
+        "last_version_validated": 78,
+        "orphan_rows_removed": true
+    },
+    "bookmark_bar": {
+        "show_on_all_tabs": true
+    },
+    "browser": {
+        "default_browser_infobar_last_declined": "13239162069460715",
+        "enable_spellchecking": false,
+        "has_seen_welcome_page": false,
+        "should_reset_check_default_browser": false,
+        "window_placement": {
+            "bottom": 1048,
+            "left": 56,
+            "maximized": true,
+            "right": 1792,
+            "top": 28,
+            "work_area_bottom": 1040,
+            "work_area_left": 0,
+            "work_area_right": 2560,
+            "work_area_top": 0
+        }
+    },
+    "countryid_at_install": 17230,
+    "custom_links": {
+        "initialized": false
+    },
+    "data_reduction": {
+        "daily_original_length": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "770169", "0", "167385", "566950", "0", "0", "1432960", "0", "0", "1094940", "3179261", "1907252", "0", "86726", "5917", "630", "1889", "0", "0", "0", "0", "1890", "3150", "0", "0", "774801", "0", "810450"],
+        "daily_received_length": ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "770169", "0", "167385", "566950", "0", "0", "1432960", "0", "0", "1094940", "3179261", "1907252", "0", "86726", "5917", "630", "1889", "0", "0", "0", "0", "1890", "3150", "0", "0", "774801", "0", "810450"],
+        "last_update_date": "13241462400000000",
+        "last_week_services_downstream_background_kb": {},
+        "last_week_services_downstream_foreground_kb": {
+            "107267424": 9,
+            "112189210": 1
+        },
+        "last_week_user_traffic_contenttype_downstream_kb": {},
+        "network_properties": {},
+        "this_week_number": 2640,
+        "this_week_services_downstream_background_kb": {},
+        "this_week_services_downstream_foreground_kb": {
+            "107267424": 9,
+            "117649486": 437,
+            "119416099": 0,
+            "137116619": 10,
+            "49601082": 4,
+            "54845618": 16,
+            "6019475": 1071,
+            "82509217": 0
+        },
+        "this_week_user_traffic_contenttype_downstream_kb": {}
+    },
+    "default_apps_install_state": 2,
+    "devtools": {
+        "adb_key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCts/gls56NcRD8UjqQtujjQ+wBrsJohe377d+e7Dr4oJXe9spZ277H1t306YbPwICdJG85hOKOKs7+ZM2FPnOEhRQb9KozKeQn9jShC8448BZvR4TLMY8VLhcbxJzmHHQKOBBBP5JIW1eJvByNfhuvBTUtvViYl8u8BeCPswnhUG+zZM084yezluMXfvkIXOlhx8QlDlSpl+bZCOOOdr1kvUpxckxO8wtjcXy4pl0usmVawviRENz4ExhSshlMI3Zw95cL8+w6a1ZwOB05H4PvYqzK/jyIbE9fPJP0JpBaF7BLMBIGlM6ItefLCH8a6kUvPgKPcD1psT71XDaidNYtAgMBAAECggEACaQbClCpZLVZWX/g40Zbr72F3GQMQ0vntRtzVXlMHp+fIeR1v74MHUBmSmEpy98l5FLw33LqNjTXD1Sd+Z7JP5o5TwHp7nQNR1CJhETI+e0Nebiw/KwwAl9wBekIQldi82xALrbuEhkLx0fLF+lfdPvngzXmtHV8Z9+1opQv4LMETDNySHrcM5lwpSPdUarMcKvyRtzPsHpkestsHKOumorpcmHOWOy384yzn7NjFFskN4ePqoVtxFHIVwHcjrLjCuiw3B4YqtE78nkdIsw5Diy9NoTM48lLt2/+fdj7tgclMy3pXD/y3dDFfSvDZmdgqdSG+MO1T6l/gi/GWIL3qwKBgQDaAjPwwwR17pl2eiye4d0jXC7MDdOVGheHt5MJfOs6LkucXROFbNJnfI+EyqZnkbW7kJYk0sbveJaEwhzGX6eAUnGyfJFo0e5qFkb7ZS2/3sT+5gyRyq7X4oMNtBPGDXCkP8OdikeyyDt4yzyHFRHcQuaJiMwVoj/KJjGoRIjMBwKBgQDL+TSgqPFU8ZmBZ9VvHuzaFOmpPuGcYulF4xPAYE/9p5NbS1pTsYbffkFIhPW8IepcHZayct8/5KbKwYRbt35WVyAtfDW7nG8TSn1aRvy4UajglWF4BxibJwZP0vQ99wM56IIg73z+EaZK+D+hTiylyRqlGORDsW2k1Eis9g6nKwKBgA7i1Z8cAeL3ntz7LK7Qp2PxuHRQgWEN/gtTWqPsNrerT5hmtp2Gt7s/QyGDIOeziGA9WDM9fT3+0vBPvN1CzNIzTvYsEVXB9/CggspJt10Bnhv1o2gVGek920sFP9BnPIjKndXVCl5H09/EqOZkZurOWqWLhLv5bzejcgKWY2zjAoGAen7Y6jtLY5YMeDihZzCNUZMJmIiY+VA1g7ERpZCxuUWwKz2fq2+L7iBmmGSxJyC/HD7wx45RII/y0wVQtbwG9Vcxjd9wbZFO66jqixLiptbzspxDgs/QKS1QjxPDdosnttk5fQoWaIa09YUMwZSvH4kcpVXDkBu4GysZ0jWbKy0CgYEAt75cWIfQjLgy0BzGXWFauncekKfqEtEcIE7IbTWTM1hi9M1P7gE69VXcqy3yjv+3fGKbJN+RSNh7WAnp8FD4B/o+8QrQmp1rngeKioQLuEvslOiVi9SyNrj5oC6r5lBBHeckaQCdMNxuXyqZ/F+5zeK9PxOhsafGj/DJ1A8HfZE=",
+        "preferences": {
+            "Inspector.drawerSplitViewState": "{\"horizontal\":{\"size\":0,\"showMode\":\"Both\"}}",
+            "InspectorView.splitViewState": "{\"vertical\":{\"size\":1276}}",
+            "console.sidebar.width": "{\"vertical\":{\"size\":0,\"showMode\":\"OnlyMain\"}}",
+            "console.sidebarSelectedFilter": "\"message\"",
+            "currentDockState": "\"right\"",
+            "elementsPanelSplitViewState": "{\"vertical\":{\"size\":439}}",
+            "inspectorVersion": "28",
+            "navigator-view-selectedTab": "\"navigator-network\"",
+            "networkPanelSidebarState": "{\"vertical\":{\"size\":0,\"showMode\":\"OnlyMain\"}}",
+            "networkPanelSplitViewState": "{\"vertical\":{\"size\":0}}",
+            "networkPanelSplitViewWaterfall": "{\"vertical\":{\"size\":0}}",
+            "panel-selectedTab": "\"sources\"",
+            "releaseNoteVersionSeen": "20",
+            "resourcesLastSelectedElementPath": "[\"chrome-search://local-ntp/promo.js\",\"category://Scripts\",\"frame://top\"]",
+            "resourcesscriptExpanded": "true",
+            "selectedProfileType": "\"HEAP\"",
+            "sourcesPanelNavigatorSplitViewState": "{\"vertical\":{\"size\":0,\"showMode\":\"Both\"}}",
+            "sourcesPanelSplitViewState": "{\"vertical\":{\"size\":0,\"showMode\":\"Both\"}}",
+            "timelineCountersSplitViewState": "{\"horizontal\":{\"size\":0}}",
+            "timelineTreeViewDetailsSplitWidget": "{\"vertical\":{\"size\":0}}",
+            "undefined-tabOrder": "{\"Styles\":10,\"Computed\":20}"
+        }
+    },
+    "download": {
+        "directory_upgrade": true
+    },
+    "extensions": {
+        "alerts": {
+            "initialized": true
+        },
+        "chrome_url_overrides": {},
+        "last_chrome_version": "78.0.3904.97"
+    },
+    "gcm": {
+        "check_time": "13239442902761956",
+        "product_category_for_subtypes": "org.chromium.windows"
+    },
+    "google": {
+        "services": {
+            "signin_scoped_device_id": "80a6287f-66ca-4e41-b297-924df91b7d88"
+        }
+    },
+    "http_original_content_length": "10804370",
+    "http_received_content_length": "10804370",
+    "invalidation": {
+        "per_sender_topics_to_handler": {
+            "8181035976": {}
+        }
+    },
+    "invalidator": {
+        "client_id": "TnvhLjkIhV6+nJ1r6Jrd4g=="
+    },
+    "language_model_counters": {
+        "en": 9,
+        "zh-CN": 171
+    },
+    "media": {
+        "device_id_salt": "D64177EC80EC95C0492F4A34A608DF8C",
+        "engagement": {
+            "schema_version": 4
+        }
+    },
+    "media_router": {
+        "receiver_id_hash_token": "+d3gu/ONCby6I4c9nwSgRB9LhYpYcc67lGQIYJuTR2wZ0IFul+00u22Wxtasivk4YPu40Z09aQMqz3DjcKpM/w=="
+    },
+    "ntp": {
+        "app_page_names": ["应用"],
+        "custom_background_local_to_device": false,
+        "num_personal_suggestions": 3,
+        "shortcust_visible": true,
+        "use_most_visited_tiles": false
+    },
+    "plugins": {
+        "plugins_list": []
+    },
+    "previews": {
+        "litepage": {
+            "user-needs-notification": false
+        },
+        "offline_helper": {
+            "available_pages": {}
+        }
+    },
+    "profile": {
+        "avatar_bubble_tutorial_shown": 2,
+        "avatar_index": 29,
+        "blacklisted_credentials_normalized": true,
+        "content_settings": {
+            "exceptions": {
+                "accessibility_events": {},
+                "app_banner": {},
+                "auto_select_certificate": {},
+                "automatic_downloads": {},
+                "autoplay": {},
+                "background_sync": {},
+                "bluetooth_guard": {},
+                "bluetooth_scanning": {},
+                "client_hints": {},
+                "clipboard": {},
+                "cookies": {},
+                "durable_storage": {},
+                "flash_data": {},
+                "geolocation": {},
+                "hid_chooser_data": {},
+                "hid_guard": {},
+                "images": {},
+                "important_site_info": {},
+                "intent_picker_auto_display": {},
+                "javascript": {},
+                "legacy_cookie_access": {},
+                "media_engagement": {
+                    "http://www.easyswoole.com:80,*": {
+                        "last_modified": "13240310617475826",
+                        "setting": {
+                            "audiblePlaybacks": 0,
+                            "audioContextPlaybacks": 0,
+                            "hasHighScore": false,
+                            "highScoreChanges": 0,
+                            "lastMediaPlaybackTime": 0.0,
+                            "mediaElementPlaybacks": 0,
+                            "mediaPlaybacks": 0,
+                            "significantPlaybacks": 0,
+                            "visits": 1
+                        }
+                    },
+                    "https://baike.baidu.com:443,*": {
+                        "last_modified": "13240025317171493",
+                        "setting": {
+                            "audiblePlaybacks": 0,
+                            "audioContextPlaybacks": 0,
+                            "hasHighScore": false,
+                            "highScoreChanges": 0,
+                            "lastMediaPlaybackTime": 0.0,
+                            "mediaElementPlaybacks": 0,
+                            "mediaPlaybacks": 0,
+                            "significantPlaybacks": 0,
+                            "visits": 1
+                        }
+                    },
+                    "https://fanyi.baidu.com:443,*": {
+                        "last_modified": "13240058567463964",
+                        "setting": {
+                            "audiblePlaybacks": 0,
+                            "audioContextPlaybacks": 0,
+                            "hasHighScore": false,
+                            "highScoreChanges": 0,
+                            "lastMediaPlaybackTime": 0.0,
+                            "mediaElementPlaybacks": 0,
+                            "mediaPlaybacks": 0,
+                            "significantPlaybacks": 0,
+                            "visits": 4
+                        }
+                    },
+                    "https://www.baidu.com:443,*": {
+                        "last_modified": "13241531216109171",
+                        "setting": {
+                            "audiblePlaybacks": 0,
+                            "audioContextPlaybacks": 0,
+                            "hasHighScore": false,
+                            "highScoreChanges": 0,
+                            "lastMediaPlaybackTime": 0.0,
+                            "mediaElementPlaybacks": 0,
+                            "mediaPlaybacks": 0,
+                            "significantPlaybacks": 0,
+                            "visits": 65
+                        }
+                    },
+                    "https://www.cnblogs.com:443,*": {
+                        "last_modified": "13240285727426848",
+                        "setting": {
+                            "audiblePlaybacks": 0,
+                            "audioContextPlaybacks": 0,
+                            "hasHighScore": false,
+                            "highScoreChanges": 0,
+                            "lastMediaPlaybackTime": 0.0,
+                            "mediaElementPlaybacks": 0,
+                            "mediaPlaybacks": 0,
+                            "significantPlaybacks": 0,
+                            "visits": 3
+                        }
+                    },
+                    "https://www.w3school.com.cn:443,*": {
+                        "last_modified": "13240286613447534",
+                        "setting": {
+                            "audiblePlaybacks": 0,
+                            "audioContextPlaybacks": 0,
+                            "hasHighScore": false,
+                            "highScoreChanges": 0,
+                            "lastMediaPlaybackTime": 0.0,
+                            "mediaElementPlaybacks": 0,
+                            "mediaPlaybacks": 0,
+                            "significantPlaybacks": 0,
+                            "visits": 1
+                        }
+                    },
+                    "https://xueqiu.com:443,*": {
+                        "last_modified": "13240289777476420",
+                        "setting": {
+                            "audiblePlaybacks": 0,
+                            "audioContextPlaybacks": 0,
+                            "hasHighScore": false,
+                            "highScoreChanges": 0,
+                            "lastMediaPlaybackTime": 0.0,
+                            "mediaElementPlaybacks": 0,
+                            "mediaPlaybacks": 0,
+                            "significantPlaybacks": 0,
+                            "visits": 2
+                        }
+                    }
+                },
+                "media_stream_camera": {},
+                "media_stream_mic": {},
+                "midi_sysex": {},
+                "mixed_script": {},
+                "native_file_system_write_guard": {},
+                "notifications": {},
+                "password_protection": {},
+                "payment_handler": {},
+                "permission_autoblocking_data": {},
+                "plugins": {},
+                "popups": {},
+                "ppapi_broker": {},
+                "protocol_handler": {},
+                "sensors": {},
+                "serial_chooser_data": {},
+                "serial_guard": {},
+                "site_engagement": {
+                    "http://www.easyswoole.com:80,*": {
+                        "last_modified": "13241497262352503",
+                        "setting": {
+                            "lastEngagementTime": 1.3241235852715752e+16,
+                            "lastShortcutLaunchTime": 0.0,
+                            "pointsAddedToday": 3.6,
+                            "rawScore": 3.6
+                        }
+                    },
+                    "https://baike.baidu.com:443,*": {
+                        "last_modified": "13241497262352402",
+                        "setting": {
+                            "lastEngagementTime": 1.3241092678157352e+16,
+                            "lastShortcutLaunchTime": 0.0,
+                            "pointsAddedToday": 2.1,
+                            "rawScore": 2.1
+                        }
+                    },
+                    "https://www.baidu.com:443,*": {
+                        "last_modified": "13241529706533813",
+                        "setting": {
+                            "lastEngagementTime": 1.32415297065338e+16,
+                            "lastShortcutLaunchTime": 0.0,
+                            "pointsAddedToday": 15.0,
+                            "rawScore": 6.753554824566095
+                        }
+                    },
+                    "https://www.cnblogs.com:443,*": {
+                        "last_modified": "13241497262352470",
+                        "setting": {
+                            "lastEngagementTime": 1.3241210802802988e+16,
+                            "lastShortcutLaunchTime": 0.0,
+                            "pointsAddedToday": 2.7,
+                            "rawScore": 5.111734262014105
+                        }
+                    },
+                    "https://www.w3school.com.cn:443,*": {
+                        "last_modified": "13241497262352336",
+                        "setting": {
+                            "lastEngagementTime": 1.3241211845788444e+16,
+                            "lastShortcutLaunchTime": 0.0,
+                            "pointsAddedToday": 2.1,
+                            "rawScore": 2.1
+                        }
+                    }
+                },
+                "sound": {},
+                "ssl_cert_decisions": {},
+                "subresource_filter": {},
+                "subresource_filter_data": {},
+                "usb_chooser_data": {},
+                "usb_guard": {}
+            },
+            "pref_version": 1
+        },
+        "created_by_version": "78.0.3904.97",
+        "exit_type": "Normal",
+        "exited_cleanly": true,
+        "icon_version": 6,
+        "last_engagement_time": "13241529706533801",
+        "last_time_obsolete_http_credentials_removed": 1594686967.489815,
+        "managed_user_id": "",
+        "name": "用户1",
+        "password_manager_onboarding_state": 1,
+        "using_default_avatar": false,
+        "using_gaia_avatar": false
+    },
+    "signin": {
+        "allowed": true
+    },
+    "spellcheck": {
+        "dictionaries": ["en-US"],
+        "dictionary": ""
+    },
+    "sync": {
+        "requested": true
+    },
+    "translate_site_blacklist_with_time": {},
+    "unified_consent": {
+        "migration_state": 10
+    },
+    "web_apps": {
+        "system_web_app_last_update": "78.0.3904.97"
+    },
+    "zerosuggest": {
+        "cachedresults": ""
+    }
+}

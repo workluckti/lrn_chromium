@@ -390,8 +390,7 @@ single_thread_task_runner->PostTask(FROM_HERE, base::BindOnce(&TaskA));
 single_thread_task_runner->PostTask(FROM_HERE, base::BindOnce(&TaskB));
 ```
 
-Remember that we [prefer sequences to physical
-threads](#prefer-sequences-to-physical-threads) and that this thus should rarely
+Remember that we [prefer sequences to physical threads](#prefer-sequences-to-physical-threads) and that this thus should rarely
 be necessary.
 
 ### Posting to the Current Thread

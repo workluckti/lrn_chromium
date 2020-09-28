@@ -51,3 +51,5 @@ src
         └──generated_resources.grd
 
 ```
+
+src\chrome\chrome_proxy

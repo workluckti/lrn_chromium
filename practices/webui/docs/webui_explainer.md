@@ -1,15 +1,3 @@
-<style>
-.note::before {
-  content: 'Note: ';
-  font-variant: small-caps;
-  font-style: italic;
-}
-
-.doc h1 {
-  margin: 0;
-}
-</style>
-
 # WebUI Explainer
 
 - [WebUI Explainer](#webui-explainer)

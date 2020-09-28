@@ -15,8 +15,11 @@ src
     |   ├──ui
     |   |   ├──webui 
     |   |   |   | #5 Adding a WebUI class for handling requests to the chrome://hello-world/ URL
-    |   |   |   ├──hello_world_ui.h #8+ Adding a callback handler #9+- Creating a WebUI Dialog
-    |   |   |   └──hello_world_ui.cc #8+ Adding a callback handler
+    |   |   |   ├──hello_world_ui.h #9+- Creating a WebUI Dialog
+    |   |   |   └──hello_world_ui.cc
+    |   |   |   | #8 Adding a callback handler
+    |   |   |   ├──hello_world_handler.h 
+    |   |   |   └──hello_world_handler.cc 
     |   |   |   | #7+ Adding your WebUI request handler to the Chrome WebUI factory
     |   |   |   └──chrome_web_ui_controller_factory.cc 
     |   |   |   |  #9 Creating a WebUI Dialog
@@ -355,7 +358,9 @@ sources = [
 
 You'll notice that the call is asynchronous. We must wait for the C++ side to call our Javascript function to get the result.
 
-## 9. Creating a WebUI Dialog
+## 9. JSON string
+
+## 10. Creating a WebUI Dialog
 Once you've created a WebUI resource following the above instructions, there are two changes necessary to make it a dialog. You must subclass the `HtmlDialogUI` class instead of `ChromeWebUI` and create an `HtmlDialogUIDelegate` class which will be responsible for running the dialog.
 
 1. Instead of subclassing the `ChromeWebUI` class as above you will need an instance of HtmlDialogUI.
@@ -469,7 +474,7 @@ Once you've created a WebUI resource following the above instructions, there are
 
 You can invoke this new dialog by calling `HelloWorldDialog::ShowDialog()`.
 
-## 10. Passing arguments to the WebUI
+## 11. Passing arguments to the WebUI
 As you may have guessed, the `HtmlDialogUIDelegate::GetDialogArgs()` function call is used for passing arguments to a dialog page. For example, if we wanted to have a custom message displayed to the user depending on some argument known only at dialog creation we could pass that argument in during construction, return it from GetDialogArgs, and access it in Javascript from chrome.dialogArguments as follows:
 
 `src/chrome/browser/ui/webui/hello_world.h`:
@@ -506,5 +511,5 @@ As you may have guessed, the `HtmlDialogUIDelegate::GetDialogArgs()` function ca
 
 In practice you will probably be passing structured data to your WebUI for which you can use the class `base::JSONWriter` to produce a JSON string which can be parsed in javascript using `JSON.parse(chrome.dialogArguments)`. TODO: Provide example of this.
 
-## 11. Adding dialog callback handlers
+## 12. Adding dialog callback handlers
 Sometimes there are resources or objects that you have available at the time of dialog creation which will not be available from the context of the `HtmlDialogUI` class. You can add callbacks to your `HtmlDialogUIDelegate` class which Javascript can then call directly. This is done from the overridden `HtmlDialogUIDelegate::GetWebUIMessageHandlers`. The actual handlers are then written the same as for regular WebUI. TODO: Provide example.

@@ -1,5 +1,16 @@
 # Chromium 代码编译
 
+## 编译命令
+```sh
+ninja -C out/Debug mini_installer -j 4
+
+ninja -C out/Official_x64 mini_installer -j 4
+ninja -C out/Official_x86 mini_installer -j 4
+
+ninja -C out/Release_x64 mini_installer -j 4
+ninja -C out/Release_x86 mini_installer -j 4
+```
+
 ## 博客摘录
 [Chromium代码编译选项介绍](https://gclxry.com/chromium-build-args/)
 - is_debug。这个选项值可以为true或者false。当为true时编译debug版本，false时编译release版本。

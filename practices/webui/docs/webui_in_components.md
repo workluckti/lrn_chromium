@@ -17,27 +17,29 @@ To create a WebUI interface in `components/` you need to follow different steps 
 ```sh
 src
 ├──components
-|   ├──hello_world
+|   ├──hi_world
 |   |   | #1 Creating the WebUI page
-|   |   ├──hellow_world.html
-|   |   ├──hellow_world.css
-|   |   └──hellow_world.js #8+ Adding a callback handler 
+|   |   ├──hi_world.html
+|   |   ├──hi_world.css
+|   |   └──hi_world.js #8+ Adding a callback handler 
 |   |   | #3 Adding URL constants for the new chrome URL
 |   |   ├──constants.cc
 |   |   └──constants.h
-|   |   | #5 Adding a WebUI class for handling requests to the chrome://hello-world/ URL
-|   |   ├──hello_world_ui.h #8+ Adding a callback handler 
-|   |   └──hello_world_ui.cc #8+ Adding a callback handler 
+|   |   | #5 Adding a WebUI class for handling requests to the chrome://hi-world/ URL
+|   |   ├──hi_world_ui.h #8+ Adding a callback handler 
+|   |   └──hi_world_ui.cc #8+ Adding a callback handler 
+|   |   ├──hi_world_handler.h #8 Adding a callback handler 
+|   |   └──hi_world_handler.cc #8 Adding a callback handler 
 |   |   | #6 Adding new sources to Chrome
 |   |   ├──BUILD.gn
 |   |   └──DEPS
 |   ├──resources
 |   |   | #2 Adding the resources
-|   |   └──hello_world_resources.grdp
+|   |   └──hi_world_resources.grdp
 |   |   | #2+ Adding the resources
 |   |   └──dev_ui_components_resources.grd
 |   | #4 Adding localized strings
-|   └──hello_world_strings.grdp
+|   └──hi_world_strings.grdp
 |   | #4+ Adding localized strings
 |   └──components_strings.grd
 └──chrome
@@ -55,7 +57,7 @@ src
   - [Adding the resources](#adding-the-resources)
   - [Adding URL constants for the new chrome URL](#adding-url-constants-for-the-new-chrome-url)
   - [Adding localized strings](#adding-localized-strings)
-  - [Adding a WebUI class for handling requests to the chrome://hello-world/ URL](#adding-a-webui-class-for-handling-requests-to-the-chromehello-world-url)
+  - [Adding a WebUI class for handling requests to the chrome://hi-world/ URL](#adding-a-webui-class-for-handling-requests-to-the-chromehi-world-url)
   - [Adding new sources to Chrome](#adding-new-sources-to-chrome)
   - [Adding your WebUI request handler to the Chrome WebUI factory](#adding-your-webui-request-handler-to-the-chrome-webui-factory)
   - [Testing](#testing)
@@ -66,43 +68,43 @@ src
 <a name="creating_webui_page"></a>
 ## Creating the WebUI page
 
-WebUI resources in `components/` will be added in your specific project folder. Create a project folder `src/components/hello_world/`. When creating WebUI resources, follow the [Web Development Style Guide](https://chromium.googlesource.com/chromium/src/+/master/styleguide/web/web.md). For a sample WebUI page you could start with the following files:
+WebUI resources in `components/` will be added in your specific project folder. Create a project folder `src/components/hi_world/`. When creating WebUI resources, follow the [Web Development Style Guide](https://chromium.googlesource.com/chromium/src/+/master/styleguide/web/web.md). For a sample WebUI page you could start with the following files:
 
-`src/components/hello_world/hello_world.html:`
+`src/components/hi_world/hi_world.html:`
 ```html
 <!DOCTYPE HTML>
 <html dir="$i18n{textdirection}">
 <head>
  <meta charset="utf-8">
- <title>$i18n{helloWorldTitle}</title>
- <link rel="stylesheet" href="hello_world.css">
+ <title>$i18n{hiWorldTitle}</title>
+ <link rel="stylesheet" href="hi_world.css">
  <script src="chrome://resources/js/cr.js"></script>
  <script src="chrome://resources/js/load_time_data.js"></script>
  <script src="chrome://resources/js/util.js"></script>
  <script src="strings.js"></script>
- <script src="hello_world.js"></script>
+ <script src="hi_world.js"></script>
 </head>
 <body style="font-family:$i18n{fontfamily};font-size:$i18n{fontSize}">
-  <h1>$i18n{helloWorldTitle}</h1>
+  <h1>$i18n{hiWorldTitle}</h1>
   <p id="welcome-message"></p>
 </body>
 </html>
 ```
 
-`src/components/hello_world/hello_world.css:`
+`src/components/hi_world/hi_world.css:`
 ```css
 p {
   white-space: pre-wrap;
 }
 ```
 
-`src/components/hello_world/hello_world.js:`
+`src/components/hi_world/hi_world.js:`
 ```js
-cr.define('hello_world', function() {
+cr.define('hi_world', function() {
   'use strict';
 
   /**
-   * Be polite and insert translated hello world strings for the user on loading.
+   * Be polite and insert translated hi world strings for the user on loading.
    */
   function initialize() {
     $('welcome-message').textContent = loadTimeData.getStringF('welcomeMessage',
@@ -115,109 +117,109 @@ cr.define('hello_world', function() {
   };
 });
 
-document.addEventListener('DOMContentLoaded', hello_world.initialize);
+document.addEventListener('DOMContentLoaded', hi_world.initialize);
 ```
 
 ## Adding the resources
 
 Resource files are specified in a `.grdp` file. Here's our
-`components/resources/hello_world_resources.grdp`:
+`components/resources/hi_world_resources.grdp`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <grit-part>
-  <include name="IDR_HELLO_WORLD_HTML" file="../../components/hello_world/hello_world.html" type="BINDATA" />
-  <include name="IDR_HELLO_WORLD_CSS" file="../../components/hello_world/hello_world.css" type="BINDATA" />
-  <include name="IDR_HELLO_WORLD_JS" file="../../components/hello_world/hello_world.js" type="BINDATA" />
+  <include name="IDR_HI_WORLD_HTML" file="../../components/hi_world/hi_world.html" type="BINDATA" />
+  <include name="IDR_HI_WORLD_CSS" file="../../components/hi_world/hi_world.css" type="BINDATA" />
+  <include name="IDR_HI_WORLD_JS" file="../../components/hi_world/hi_world.js" type="BINDATA" />
 </grit-part>
 ```
 
 Add the created file in `components/resources/dev_ui_components_resources.grd`:
 
 ```xml
-+<part file="hello_world_resources.grdp" />
++<part file="hi_world_resources.grdp" />
 ```
 
 ## Adding URL constants for the new chrome URL
 
 Create the `constants.cc` and `constants.h` files to add the URL constants. This is where you will add the URL or URL's which will be directed to your new resources.
 
-`src/components/hello_world/constants.cc:`
+`src/components/hi_world/constants.cc:`
 ```c++
-const char kChromeUIHelloWorldURL[] = "chrome://hello-world/";
-const char kChromeUIHelloWorldHost[] = "hello-world";
+const char kChromeUIHiWorldURL[] = "chrome://hi-world/";
+const char kChromeUIHiWorldHost[] = "hi-world";
 ```
 
-`src/components/hello_world/constants.h:`
+`src/components/hi_world/constants.h:`
 ```c++
-extern const char kChromeUIHelloWorldURL[];
-extern const char kChromeUIHelloWorldHost[];
+extern const char kChromeUIHiWorldURL[];
+extern const char kChromeUIHiWorldHost[];
 ```
 
 ## Adding localized strings
 
-We need a few string resources for translated strings to work on the new resource. The welcome message contains a variable with a sample value so that it can be accurately translated. Create a new file `components/hello_world_strings.grdp`. You can add the messages as follow:
+We need a few string resources for translated strings to work on the new resource. The welcome message contains a variable with a sample value so that it can be accurately translated. Create a new file `components/hi_world_strings.grdp`. You can add the messages as follow:
 
 ```xml
-<message name="IDS_HELLO_WORLD_TITLE" desc="A happy message saying hello to the world">
+<message name="IDS_HI_WORLD_TITLE" desc="A happy message saying hi to the world">
   Hello World!
 </message>
-<message name="IDS_HELLO_WORLD_WELCOME_TEXT" desc="Message welcoming the user to the hello world page">
-  Welcome to this fancy Hello World page <ph name="WELCOME_NAME">$1<ex>Chromium User</ex></ph>!
+<message name="IDS_HI_WORLD_WELCOME_TEXT" desc="Message welcoming the user to the hi world page">
+  Welcome to this fancy Hi World page <ph name="WELCOME_NAME">$1<ex>Chromium User</ex></ph>!
 </message>
 ```
 Add the created file in `components/components_strings.grd`:
 
 ```xml
-+<part file="hello_world_strings.grdp" />
++<part file="hi_world_strings.grdp" />
 ```
 
-## Adding a WebUI class for handling requests to the chrome://hello-world/ URL
+## Adding a WebUI class for handling requests to the chrome://hi-world/ URL
 
 Next we need a class to handle requests to this new resource URL. Typically this will subclass `ChromeWebUI` (but WebUI dialogs should subclass `HtmlDialogUI` instead).
 
-`src/components/hello_world/hello_world_ui.h:`
+`src/components/hi_world/hi_world_ui.h:`
 ```c++
-#ifndef COMPONENTS_HELLO_WORLD_HELLO_WORLD_UI_H_
-#define COMPONENTS_HELLO_WORLD_HELLO_WORLD_UI_H_
+#ifndef COMPONENTS_HI_WORLD_UI_H_
+#define COMPONENTS_HI_WORLD_UI_H_
 #pragma once
 
 #include "base/macros.h"
 #include "content/public/browser/web_ui_controller.h"
 
-// The WebUI for chrome://hello-world
-class HelloWorldUI : public content::WebUIController {
+// The WebUI for chrome://hi-world
+class HiWorldUI : public content::WebUIController {
  public:
-  explicit HelloWorldUI(content::WebUI* web_ui);
-  ~HelloWorldUI() override;
+  explicit HiWorldUI(content::WebUI* web_ui);
+  ~HiWorldUI() override;
  private:
-  DISALLOW_COPY_AND_ASSIGN(HelloWorldUI);
+  DISALLOW_COPY_AND_ASSIGN(HiWorldUI);
 };
 
-#endif  // COMPONENTS_HELLO_WORLD_HELLO_WORLD_UI_H_
+#endif  // COMPONENTS_HI_WORLD_UI_H_
 ```
 
-`src/components/hello_world/hello_world_ui.cc:`
+`src/components/hi_world/hi_world_ui.cc:`
 ```c++
-#include "components/hello_world/hello_world_ui.h"
+#include "components/hi_world/hi_world_ui.h"
 
 #include "components/grit/components_scaled_resources.h"
 #include "components/grit/dev_ui_components_resources.h"
-#include "components/hello_world/constants.h"
+#include "components/hi_world/constants.h"
 #include "components/strings/grit/components_strings.h"
 #include "content/public/browser/browser_context.h"
 #include "content/public/browser/web_contents.h"
 #include "content/public/browser/web_ui.h"
 #include "content/public/browser/web_ui_data_source.h"
 
-HelloWorldUI::HelloWorldUI(content::WebUI* web_ui)
+HiWorldUI::HiWorldUI(content::WebUI* web_ui)
     : content::WebUIController(web_ui) {
-  // Set up the chrome://hello-world source.
+  // Set up the chrome://hi-world source.
   content::WebUIDataSource* html_source =
       content::WebUIDataSource::Create(chrome::kChromeUIHelloWorldHost);
 
   // Localized strings.
-  html_source->AddLocalizedString("helloWorldTitle", IDS_HELLO_WORLD_TITLE);
+  html_source->AddLocalizedString("hiWorldTitle", IDS_HELLO_WORLD_TITLE);
   html_source->AddLocalizedString("welcomeMessage", IDS_HELLO_WORLD_WELCOME_TEXT);
 
   // As a demonstration of passing a variable for JS to use we pass in the name "Bob".
@@ -225,8 +227,8 @@ HelloWorldUI::HelloWorldUI(content::WebUI* web_ui)
   html_source->UseStringsJs();
 
   // Add required resources.
-  html_source->AddResourcePath("hello_world.css", IDR_HELLO_WORLD_CSS);
-  html_source->AddResourcePath("hello_world.js", IDR_HELLO_WORLD_JS);
+  html_source->AddResourcePath("hi_world.css", IDR_HELLO_WORLD_CSS);
+  html_source->AddResourcePath("hi_world.js", IDR_HELLO_WORLD_JS);
   html_source->SetDefaultResource(IDR_HELLO_WORLD_HTML);
 
   content::BrowserContext* browser_context =
@@ -234,7 +236,7 @@ HelloWorldUI::HelloWorldUI(content::WebUI* web_ui)
   content::WebUIDataSource::Add(browser_context, html_source);
 }
 
-HelloWorldUI::~HelloWorldUI() {
+HiWorldUI::~HiWorldUI() {
 }
 ```
 
@@ -242,14 +244,14 @@ HelloWorldUI::~HelloWorldUI() {
 
 In order for your new class to be built and linked, you need to update the `BUILD.gn` and DEPS files. Create
 
-`src/components/hello_world/BUILD.gn:`
+`src/components/hi_world/BUILD.gn:`
 ```
 sources = [
-  "hello_world_ui.cc",
-  "hello_world_ui.h",
+  "hi_world_ui.cc",
+  "hi_world_ui.h",
   ...
 ```
-and `src/components/hello_world/DEPS:`
+and `src/components/hi_world/DEPS:`
 ```
 include_rules = [
   "+components/strings/grit/components_strings.h",
@@ -264,22 +266,22 @@ The Chrome WebUI factory is where you setup your new request handler.
 
 `src/chrome/browser/ui/webui/chrome_web_ui_controller_factory.cc:`
 ```c++
-+ #include "components/hello_world/hello_world_ui.h"
-+ #include "components/hello_world/constants.h"
++ #include "components/hi_world/hi_world_ui.h"
++ #include "components/hi_world/constants.h"
 ...
 + if (url.host() == chrome::kChromeUIHelloWorldHost)
-+   return &NewWebUI<HelloWorldUI>;
++   return &NewWebUI<HiWorldUI>;
 ```
 
 ## Testing
 
-You're done! Assuming no errors (because everyone gets their code perfect the first time) you should be able to compile and run chrome and navigate to `chrome://hello-world/` and see your nifty welcome text!
+You're done! Assuming no errors (because everyone gets their code perfect the first time) you should be able to compile and run chrome and navigate to `chrome://hi-world/` and see your nifty welcome text!
 
 ## Adding a callback handler
 
 You probably want your new WebUI page to be able to do something or get information from the C++ world. For this, we use message callback handlers. Let's say that we don't trust the Javascript engine to be able to add two integers together (since we know that it uses floating point values internally). We could add a callback handler to perform integer arithmetic for us.
 
-`src/components/hello_world/hello_world_ui.h:`
+`src/components/hi_world/hi_world_ui.h:`
 ```c++
 #include "content/public/browser/web_ui.h"
 +
@@ -287,39 +289,39 @@ You probably want your new WebUI page to be able to do something or get informat
 +   class ListValue;
 + }  // namespace base
 
-// The WebUI for chrome://hello-world
+// The WebUI for chrome://hi-world
 ...
-    // Set up the chrome://hello-world source.
-    content::WebUIDataSource* html_source = content::WebUIDataSource::Create(hello_world::kChromeUIHelloWorldHost);
+    // Set up the chrome://hi-world source.
+    content::WebUIDataSource* html_source = content::WebUIDataSource::Create(hi_world::kChromeUIHelloWorldHost);
 +
 +   // Register callback handler.
 +   RegisterMessageCallback("addNumbers",
-+       base::BindRepeating(&HelloWorldUI::AddNumbers,
++       base::BindRepeating(&HiWorldUI::AddNumbers,
 +                           base::Unretained(this)));
 
     // Localized strings.
 ...
-    virtual ~HelloWorldUI();
+    virtual ~HiWorldUI();
 +
 +  private:
 +   // Add two numbers together using integer arithmetic.
 +   void AddNumbers(const base::ListValue* args);
 
-    DISALLOW_COPY_AND_ASSIGN(HelloWorldUI);
+    DISALLOW_COPY_AND_ASSIGN(HiWorldUI);
   };
 ```
 
-`src/components/hello_world/hello_world_ui.cc:`
+`src/components/hi_world/hi_world_ui.cc:`
 ```c++
-  #include "components/hello_world/hello_world_ui.h"
+  #include "components/hi_world/hi_world_ui.h"
 +
 + #include "base/values.h"
   #include "content/public/browser/browser_context.h"
 ...
-  HelloWorldUI::~HelloWorldUI() {
+  HiWorldUI::~HiWorldUI() {
   }
 +
-+ void HelloWorldUI::AddNumbers(const base::ListValue* args) {
++ void HiWorldUI::AddNumbers(const base::ListValue* args) {
 +   int term1, term2;
 +   if (!args->GetInteger(0, &term1) || !args->GetInteger(1, &term2))
 +     return;
@@ -331,7 +333,7 @@ You probably want your new WebUI page to be able to do something or get informat
 + }
 ```
 
-`src/components/hello_world/hello_world.js:`
+`src/components/hi_world/hi_world.js:`
 ```c++
     function initialize() {
 +     cr.sendWithPromise('addNumbers', [2, 2]).then((result) =>

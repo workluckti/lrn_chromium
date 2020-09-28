@@ -1,0 +1,263 @@
+{
+    "browser": {
+        "show_home_button": true
+    },
+    "default_search_provider_data": {
+        "template_url_data": {
+            "alternate_urls": ["https://www.baidu.com/s?ie={inputEncoding}&wd={searchTerms}", "https://www.baidu.com/s?ie={inputEncoding}&word={searchTerms}", "https://www.baidu.com/{google:pathWildcard}/s?ie={inputEncoding}&word={searchTerms}"],
+            "contextual_search_url": "",
+            "created_by_policy": false,
+            "created_from_play_api": false,
+            "date_created": "0",
+            "doodle_url": "",
+            "favicon_url": "https://www.baidu.com/favicon.ico",
+            "id": "2",
+            "image_url": "",
+            "image_url_post_params": "",
+            "input_encodings": ["UTF-8"],
+            "keyword": "baidu.com",
+            "last_modified": "13240025207139445",
+            "last_visited": "13240286573052332",
+            "logo_url": "",
+            "new_tab_url": "",
+            "originating_url": "",
+            "prepopulate_id": 21,
+            "safe_for_autoreplace": true,
+            "search_url_post_params": "",
+            "short_name": "百度",
+            "suggestions_url": "https://suggestion.baidu.com/su?wd={searchTerms}&action=opensearch&ie={inputEncoding}",
+            "suggestions_url_post_params": "",
+            "synced_guid": "485bf7d3-0215-45af-87dc-538868000021",
+            "url": "https://www.baidu.com/#ie={inputEncoding}&wd={searchTerms}",
+            "usage_count": 0
+        }
+    },
+    "extensions": {
+        "settings": {
+            "ahfgeienlihckogmohjhadlkjgocpleb": {
+                "active_permissions": {
+                    "api": ["management", "system.display", "system.storage", "webstorePrivate", "system.cpu", "system.memory", "system.network"],
+                    "manifest_permissions": []
+                },
+                "app_launcher_ordinal": "t",
+                "commands": {},
+                "content_settings": [],
+                "creation_flags": 1,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": false,
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "install_time": "13239160507899203",
+                "location": 5,
+                "manifest": {
+                    "app": {
+                        "launch": {
+                            "web_url": "https://chrome.google.com/webstore"
+                        },
+                        "urls": ["https://chrome.google.com/webstore"]
+                    },
+                    "description": "在这里，您可以找到适用于 Chromium 的精彩应用、游戏、扩展程序和主题背景。",
+                    "icons": {
+                        "128": "webstore_icon_128.png",
+                        "16": "webstore_icon_16.png"
+                    },
+                    "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCtl3tO0osjuzRsf6xtD2SKxPlTfuoy7AWoObysitBPvH5fE1NaAA1/2JkPWkVDhdLBWLaIBPYeXbzlHp3y4Vv/4XG+aN5qFE3z+1RU/NqkzVYHtIpVScf3DjTYtKVL66mzVGijSoAIwbFCC3LpGdaoe6Q1rSRDp76wR6jjFzsYwQIDAQAB",
+                    "name": "Chrome 网上应用店",
+                    "permissions": ["webstorePrivate", "management", "system.cpu", "system.display", "system.memory", "system.network", "system.storage"],
+                    "version": "0.2"
+                },
+                "needs_sync": true,
+                "never_activated_since_loaded": true,
+                "page_ordinal": "n",
+                "path": "E:\\chromium-desktop\\chromium-stl\\src\\out\\Default\\resources\\web_store",
+                "preferences": {},
+                "regular_only_preferences": {},
+                "state": 1,
+                "was_installed_by_default": false,
+                "was_installed_by_oem": false
+            },
+            "kmendfapggjehodndflmmgagdbamhnfd": {
+                "active_permissions": {
+                    "api": ["cryptotokenPrivate", "externally_connectable.all_urls", "tabs", "webConnectable"],
+                    "explicit_host": ["http://*/*", "https://*/*"],
+                    "manifest_permissions": []
+                },
+                "commands": {},
+                "content_settings": [],
+                "creation_flags": 1,
+                "events": ["runtime.onConnectExternal"],
+                "from_bookmark": false,
+                "from_webstore": false,
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "install_time": "13239160507902785",
+                "location": 5,
+                "manifest": {
+                    "background": {
+                        "persistent": false,
+                        "scripts": ["util.js", "b64.js", "cbor.js", "sha256.js", "timer.js", "countdown.js", "countdowntimer.js", "devicestatuscodes.js", "approvedorigins.js", "errorcodes.js", "webrequest.js", "messagetypes.js", "factoryregistry.js", "requesthelper.js", "asn1.js", "enroller.js", "requestqueue.js", "signer.js", "origincheck.js", "textfetcher.js", "appid.js", "watchdog.js", "logging.js", "webrequestsender.js", "window-timer.js", "cryptotokenorigincheck.js", "cryptotokenapprovedorigins.js", "inherits.js", "individualattest.js", "googlecorpindividualattest.js", "cryptotokenbackground.js"]
+                    },
+                    "description": "CryptoToken Component Extension",
+                    "externally_connectable": {
+                        "ids": ["fjajfjhkeibgmiggdfehjplbhmfkialk"],
+                        "matches": ["https://*/*"]
+                    },
+                    "incognito": "split",
+                    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq7zRobvA+AVlvNqkHSSVhh1sEWsHSqz4oR/XptkDe/Cz3+gW9ZGumZ20NCHjaac8j1iiesdigp8B1LJsd/2WWv2Dbnto4f8GrQ5MVphKyQ9WJHwejEHN2K4vzrTcwaXqv5BSTXwxlxS/mXCmXskTfryKTLuYrcHEWK8fCHb+0gvr8b/kvsi75A1aMmb6nUnFJvETmCkOCPNX5CHTdy634Ts/x0fLhRuPlahk63rdf7agxQv5viVjQFk+tbgv6aa9kdSd11Js/RZ9yZjrFgHOBWgP4jTBqud4+HUglrzu8qynFipyNRLCZsaxhm+NItTyNgesxLdxZcwOz56KD1Q4IQIDAQAB",
+                    "manifest_version": 2,
+                    "name": "CryptoTokenExtension",
+                    "permissions": ["cryptotokenPrivate", "externally_connectable.all_urls", "tabs", "https://*/*", "http://*/*"],
+                    "version": "0.9.74"
+                },
+                "never_activated_since_loaded": true,
+                "path": "E:\\chromium-desktop\\chromium-stl\\src\\out\\Default\\resources\\cryptotoken",
+                "preferences": {},
+                "regular_only_preferences": {},
+                "state": 1,
+                "was_installed_by_default": false,
+                "was_installed_by_oem": false
+            },
+            "mfehgcgbbipciphmccgaenjidiccnmng": {
+                "active_permissions": {
+                    "api": ["cloudPrintPrivate"],
+                    "manifest_permissions": []
+                },
+                "commands": {},
+                "content_settings": [],
+                "creation_flags": 1,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": false,
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "install_time": "13239160507784868",
+                "location": 5,
+                "manifest": {
+                    "app": {
+                        "launch": {
+                            "web_url": "https://www.google.com/cloudprint"
+                        },
+                        "urls": ["https://www.google.com/cloudprint/enable_chrome_connector"]
+                    },
+                    "description": "Cloud Print",
+                    "display_in_launcher": false,
+                    "icons": {},
+                    "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDqOhnwk4+HXVfGyaNsAQdU/js1Na56diW08oF1MhZiwzSnJsEaeuMN9od9q9N4ZdK3o1xXOSARrYdE+syV7Dl31nf6qz3A6K+D5NHe6sSB9yvYlIiN37jdWdrfxxE0pRYEVYZNTe3bzq3NkcYJlOdt1UPcpJB+isXpAGUKUvt7EQIDAQAB",
+                    "name": "Cloud Print",
+                    "permissions": ["cloudPrintPrivate"],
+                    "version": "0.1"
+                },
+                "never_activated_since_loaded": true,
+                "path": "E:\\chromium-desktop\\chromium-stl\\src\\out\\Default\\resources\\cloud_print",
+                "preferences": {},
+                "regular_only_preferences": {},
+                "state": 1,
+                "was_installed_by_default": false,
+                "was_installed_by_oem": false
+            },
+            "mhjfbmdgcfjbbpaeojofohoefgiehjai": {
+                "active_permissions": {
+                    "api": ["contentSettings", "fileSystem", "fileSystem.write", "metricsPrivate", "resourcesPrivate"],
+                    "explicit_host": ["chrome://resources/*"],
+                    "manifest_permissions": []
+                },
+                "commands": {},
+                "content_settings": [],
+                "creation_flags": 1,
+                "events": [],
+                "from_bookmark": false,
+                "from_webstore": false,
+                "incognito_content_settings": [],
+                "incognito_preferences": {},
+                "install_time": "13239160507905930",
+                "location": 5,
+                "manifest": {
+                    "content_security_policy": "script-src 'self' 'wasm-eval' blob: filesystem: chrome://resources; object-src * blob: externalfile: file: filesystem: data:; plugin-types application/x-google-chrome-pdf",
+                    "description": "",
+                    "incognito": "split",
+                    "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDN6hM0rsDYGbzQPQfOygqlRtQgKUXMfnSjhIBL7LnReAVBEd7ZmKtyN2qmSasMl4HZpMhVe2rPWVVwBDl6iyNE/Kok6E6v6V3vCLGsOpQAuuNVye/3QxzIldzG/jQAdWZiyXReRVapOhZtLjGfywCvlWq7Sl/e3sbc0vWybSDI2QIDAQAB",
+                    "manifest_version": 2,
+                    "mime_types": ["application/pdf"],
+                    "mime_types_handler": "index.html",
+                    "name": "Chromium PDF Viewer",
+                    "offline_enabled": true,
+                    "permissions": ["chrome://resources/", "contentSettings", "metricsPrivate", "resourcesPrivate", {
+                        "fileSystem": ["write"]
+                    }],
+                    "version": "1"
+                },
+                "never_activated_since_loaded": true,
+                "path": "E:\\chromium-desktop\\chromium-stl\\src\\out\\Default\\resources\\pdf",
+                "preferences": {},
+                "regular_only_preferences": {},
+                "state": 1,
+                "was_installed_by_default": false,
+                "was_installed_by_oem": false
+            }
+        }
+    },
+    "homepage_is_newtabpage": true,
+    "pinned_tabs": [],
+    "protection": {
+        "macs": {
+            "browser": {
+                "show_home_button": "3E4F85647ADB285976E135367FD52E750338B5680B7685DCA20FCA2FD7AFD8B9"
+            },
+            "default_search_provider_data": {
+                "template_url_data": "DA3EA56E3AD78E09A205B20AF44474AFBE47122220CAD84839BC0D654F44E59A"
+            },
+            "extensions": {
+                "settings": {
+                    "ahfgeienlihckogmohjhadlkjgocpleb": "22F047C1BE92AE5476E70BB90A1F6210A8F316B5700BA6AF684A2FC4EBB550AB",
+                    "kmendfapggjehodndflmmgagdbamhnfd": "421B63B282D7A9223234086A4A0D28A9DFFC938BDEFADAAA44C09E7AF97C0BB5",
+                    "mfehgcgbbipciphmccgaenjidiccnmng": "FFF9743795A1089D14408A8D3444477B7327B89ADD0A3EAED27D5E6F5642AA62",
+                    "mhjfbmdgcfjbbpaeojofohoefgiehjai": "D00A70663DB0FE337CC33F4620B14608713536E11A9EB98EE381C14DB37638AF"
+                }
+            },
+            "google": {
+                "services": {
+                    "account_id": "19C74D773641EE763DA5128901AAA3A51D7E64799A4E078B93B8D7EAB30D579B",
+                    "last_account_id": "89E97D837EE5EB8E95BD749521E4243D88E98D22462B6A46FC1F172D43C3FA65",
+                    "last_username": "61AED365B10AA365A19CC1304E099E9094488CC15CBB7AE10941C6916D52D13E",
+                    "username": "A22D9A3BF056DA7368DD47405CB25A708DF810F9A365B447A1B2E31CADA845A0"
+                }
+            },
+            "homepage": "1AB88190D783EB6AF9A4C46D1656A9238A704C316216C74482348CDFB763BC00",
+            "homepage_is_newtabpage": "E2AE5C2E7C277874238F55A4296769D3BC0E62B8DD7949CC09505D3D7F19C780",
+            "media": {
+                "storage_id_salt": "C4E4BBA903C209A94BA96DFCF56E7981891F67385FD4290DF554B8BF967DB92B"
+            },
+            "pinned_tabs": "A19DFFB83432344E2C39DE62FE8F65C6CDA1F68CC282BD6EDCD0E6F778E2BE85",
+            "prefs": {
+                "preference_reset_time": "54E9265BAD10D7F63483DF5FDAF145D826E7060A1A32061939BBFBE89E21FFF9"
+            },
+            "safebrowsing": {
+                "incidents_sent": "6AEBF2C88C0062FA142B4489CD093C03F9C7D033736902E26496D76DBA99DC5D"
+            },
+            "search_provider_overrides": "26CBDE61924CE8CDFBC935B9023E2F8D2E083E7765B3A027213AF4230D31FC89",
+            "session": {
+                "restore_on_startup": "D416AFE6BB61BE2029892A1176460927346FE36477E57461CE88DC0DD9E1F48F",
+                "startup_urls": "4FB53E8F78FA0A8F1B104372BB2BC4AD78FBE73D6491CA46478E9C1979F01E99"
+            },
+            "settings_reset_prompt": {
+                "last_triggered_for_default_search": "5934EC63CAD5DD37E0550F68C58F4E95C2E5F4780E2D1DC01CA77ABDDBED7649",
+                "last_triggered_for_homepage": "1FACF2E4BA541FA0E995F07B76CD6E99DFA3FBE863D93780BC7D37C6057122CC",
+                "last_triggered_for_startup_urls": "DBA548689DC9FAE2AB63020600B39F17B0E2C228BF6EEE06E42D985341EE9714",
+                "prompt_wave": "1D626FE062090D091127CD0B9988ABCB99BD8E42FFBAB4494F1BA61010E3F5E0"
+            },
+            "software_reporter": {
+                "prompt_seed": "B56A77DF387A3CA64DD42D19A65D4F3B87072BD0A1B67B00F8887F8DFD1872B0",
+                "prompt_version": "232760EA45B8F518D7B8C154BA22CE367FE540E24370BE68EFA5AF1CC767E181",
+                "reporting": "45CDAFA8FDE27877DCFD0415C52022C2CF2D3339A86F5B8155A1B6E8856B0E01"
+            }
+        },
+        "super_mac": "7B26B052FD00C8D806C9392ED3A46FFC42D26885C29FA81FA347326847C7DD83"
+    },
+    "session": {
+        "restore_on_startup": 5
+    },
+    "settings_reset_prompt": {
+        "prompt_wave": 20170101
+    }
+}
