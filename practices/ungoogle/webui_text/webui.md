@@ -661,6 +661,22 @@ void MockRenderViewContextMenu::AddAccessibilityLabelsServiceItem(
 ### 2020-09-17_11
 ![remove google url](202000917-11.png)
 
+
+`src\components\security_interstitials\core\browser\resources\interstitial_large.html`
+```html
+...
+      <div id="extended-reporting-opt-in" class="hidden">
+        <label>
+          <div class="checkboxes">
+            <input type="checkbox" id="opt-in-checkbox">
+            <span class="checkbox"></span>
+          </div>
+          <span id="opt-in-label"></span>
+        </label>
+      </div>
+    </div>
+...
+```
 `src\components\security_interstitials_strings.grdp`
 ```xml
   <message name="IDS_SAFE_BROWSING_SCOUT_REPORTING_AGREE" desc="SafeBrowsing Scout label next to checkbox">
@@ -677,19 +693,34 @@ void MockRenderViewContextMenu::AddAccessibilityLabelsServiceItem(
 
 `src\components\security_interstitials\core\safe_browsing_loud_error_ui.cc`
 ```c++
-  const std::string privacy_link = base::StringPrintf(
-      security_interstitials::kPrivacyLinkHtml,
-      security_interstitials::CMD_OPEN_REPORTING_PRIVACY,
-      l10n_util::GetStringUTF8(IDS_SAFE_BROWSING_PRIVACY_POLICY_PAGE).c_str());
+  // const std::string privacy_link = base::StringPrintf(
+  //     security_interstitials::kPrivacyLinkHtml,
+  //     security_interstitials::CMD_OPEN_REPORTING_PRIVACY,
+  //     l10n_util::GetStringUTF8(IDS_SAFE_BROWSING_PRIVACY_POLICY_PAGE).c_str());
   load_time_data->SetString(
       security_interstitials::kOptInLink,
-      l10n_util::GetStringFUTF16(IDS_SAFE_BROWSING_SCOUT_REPORTING_AGREE,
-                                 base::UTF8ToUTF16(privacy_link)));
+      // l10n_util::GetStringFUTF16(IDS_SAFE_BROWSING_SCOUT_REPORTING_AGREE,
+      //                            base::UTF8ToUTF16(privacy_link)));
+      l10n_util::GetStringUTF16(IDS_SAFE_BROWSING_SCOUT_REPORTING_AGREE));
   load_time_data->SetBoolean(security_interstitials::kBoxChecked,
                              is_extended_reporting_enabled());
 }
 ```
 
+`src\chrome\browser\ssl\cert_report_helper.cc`
+```c++
+  // const std::string privacy_link = base::StringPrintf(
+  //     security_interstitials::kPrivacyLinkHtml,
+  //     security_interstitials::CMD_OPEN_REPORTING_PRIVACY,
+  //     l10n_util::GetStringUTF8(IDS_SAFE_BROWSING_PRIVACY_POLICY_PAGE).c_str());
+
+  load_time_data->SetString(
+      security_interstitials::kOptInLink,
+      // l10n_util::GetStringFUTF16(IDS_SAFE_BROWSING_SCOUT_REPORTING_AGREE,
+      //                            base::UTF8ToUTF16(privacy_link)));
+      l10n_util::GetStringUTF16(IDS_SAFE_BROWSING_SCOUT_REPORTING_AGREE));
+}
+```
 PS: ID 1974883374937189061 3662223494981330302
 
 ## webui seting directories
