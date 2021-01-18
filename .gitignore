@@ -14,3 +14,9 @@ _book
 *.epub
 *.mobi
 *.pdf
+
+# vscode
+.vscode
+
+# mac
+.DS_Store
